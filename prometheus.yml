@@ -76,6 +76,9 @@ data:
 
     scrape_configs:
     - job_name: 'prometheus'
+      tls_config:
+        ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+      bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
       metrics_path: /metrics
       scheme: http
       static_configs:
